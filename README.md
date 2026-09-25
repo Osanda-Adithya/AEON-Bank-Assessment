@@ -1,97 +1,360 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# BankAssessment
+
+A React Native mobile application built with React Native and the React Native Community CLI.
+
+## Requirements
+
+Before running the project, make sure the following tools are installed and configured:
+
+- Node.js
+- npm or Yarn
+- Java Development Kit (JDK)
+- Android Studio and Android SDK — for Android development
+- Xcode — for iOS development (macOS only)
+- CocoaPods — for iOS dependencies
+- Ruby and Bundler — for iOS dependency management
+
+For the official React Native environment setup guide:
+
+https://reactnative.dev/docs/set-up-your-environment
+
+---
 
 # Getting Started
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 1. Clone the repository
 
-## Step 1: Start Metro
+Clone the project and navigate to the project directory:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```bash
+git clone <repository-url>
+cd BankAssessment
 ```
 
-## Step 2: Build and run your app
+## 2. Install JavaScript dependencies
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Using npm:
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npm install
 ```
 
-### iOS
+Or using Yarn:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+```bash
+yarn install
+```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+---
 
-```sh
+# iOS Setup
+
+> iOS development requires macOS and Xcode.
+
+## 1. Install Ruby dependencies
+
+From the project root:
+
+```bash
 bundle install
 ```
 
-Then, and every time you update your native dependencies, run:
+## 2. Install CocoaPods dependencies
 
-```sh
+Navigate to the iOS directory:
+
+```bash
+cd ios
 bundle exec pod install
+cd ..
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Run `pod install` again whenever native iOS dependencies are changed.
 
-```sh
-# Using npm
+## 3. Start Metro
+
+From the project root:
+
+```bash
+npm start
+```
+
+Or:
+
+```bash
+yarn start
+```
+
+Keep Metro running.
+
+## 4. Run the iOS application
+
+Open another terminal and run:
+
+```bash
 npm run ios
+```
 
-# OR using Yarn
+Or:
+
+```bash
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+The application should launch in the iOS Simulator.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Running on a physical iPhone
 
-## Step 3: Modify your app
+Make sure:
 
-Now that you have successfully run the app, let's make changes!
+1. The iPhone is connected to the Mac.
+2. The device is trusted.
+3. A valid Apple Development Team/signing configuration is selected in Xcode.
+4. The correct Bundle Identifier is configured.
+5. Developer Mode is enabled on the device if required.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+You can also open the workspace directly in Xcode:
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```bash
+open ios/BankAssessment.xcworkspace
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Then select the target device and press **Run**.
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+# Android Setup
 
-### Now what?
+## 1. Configure Android environment
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Make sure Android Studio is installed and the required Android SDK, emulator, and environment variables are configured.
+
+Verify that ADB is available:
+
+```bash
+adb devices
+```
+
+You should see your connected Android device or emulator.
+
+## 2. Start Metro
+
+From the project root:
+
+```bash
+npm start
+```
+
+Or:
+
+```bash
+yarn start
+```
+
+Keep Metro running.
+
+## 3. Run the Android application
+
+Open another terminal and run:
+
+```bash
+npm run android
+```
+
+Or:
+
+```bash
+yarn android
+```
+
+The application should launch in the Android Emulator or on your connected Android device.
+
+---
+
+# Running the Application
+
+The normal development workflow is:
+
+### Terminal 1 — Start Metro
+
+```bash
+npm start
+```
+
+### Terminal 2 — Run Android
+
+```bash
+npm run android
+```
+
+Or run iOS:
+
+```bash
+npm run ios
+```
+
+---
+
+# Useful Commands
+
+## Start Metro
+
+```bash
+npm start
+```
+
+## Start Metro with a clean cache
+
+```bash
+npm start -- --reset-cache
+```
+
+## Run Android
+
+```bash
+npm run android
+```
+
+## Run iOS
+
+```bash
+npm run ios
+```
+
+## Install iOS dependencies
+
+```bash
+cd ios
+bundle exec pod install
+cd ..
+```
+
+## Open iOS project in Xcode
+
+```bash
+open ios/BankAssessment.xcworkspace
+```
+
+## Check connected Android devices
+
+```bash
+adb devices
+```
+
+---
 
 # Troubleshooting
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Metro cache issues
 
-# Learn More
+If the application is showing stale JavaScript or unexpected Metro errors:
 
-To learn more about React Native, take a look at the following resources:
+```bash
+npm start -- --reset-cache
+```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Then rebuild the application.
+
+## iOS dependency issues
+
+If you encounter CocoaPods or native dependency issues:
+
+```bash
+cd ios
+rm -rf Pods
+bundle exec pod install
+cd ..
+```
+
+Then rebuild the application.
+
+If required, clean the Xcode build:
+
+```bash
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
+```
+
+## Android build issues
+
+Try cleaning the Android build:
+
+```bash
+cd android
+./gradlew clean
+cd ..
+```
+
+Then run:
+
+```bash
+npm run android
+```
+
+## Application does not connect to Metro
+
+Make sure Metro is running:
+
+```bash
+npm start
+```
+
+For a physical Android device, verify that the device can reach the development machine and that ADB is connected correctly.
+
+---
+
+# Development
+
+The main application entry point is:
+
+```text
+App.tsx
+```
+
+React Native's **Fast Refresh** automatically updates the application when JavaScript/TypeScript files are modified.
+
+For a complete reload:
+
+### Android
+
+Press `R` twice in the emulator or use the React Native Dev Menu.
+
+### iOS
+
+Press `R` in the iOS Simulator or use the React Native Dev Menu.
+
+---
+
+# Project Structure
+
+```text
+BankAssessment/
+├── android/
+├── ios/
+├── src/
+├── App.tsx
+├── package.json
+├── tsconfig.json
+├── babel.config.js
+├── metro.config.js
+└── README.md
+```
+
+---
+
+# Important Notes
+
+- Do not commit generated build directories.
+- Do not commit sensitive credentials, API keys, certificates, or signing files.
+- Always run `bundle exec pod install` after changing native iOS dependencies.
+- Keep Metro running while developing.
+- Use the appropriate Node.js, Java, Xcode, and Android SDK versions required by the project.
+
+---
+
+# React Native Resources
+
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [React Native Environment Setup](https://reactnative.dev/docs/set-up-your-environment)
+- [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting)
+- [React Native GitHub Repository](https://github.com/facebook/react-native)
+- [CocoaPods Getting Started](https://guides.cocoapods.org/using/getting-started.html)
